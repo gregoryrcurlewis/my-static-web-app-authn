@@ -5,9 +5,14 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { HeaderBar, NavBar, NotFound } from './components';
 import About from './About';
+// import List from './listProducts/List';
 
 const Products = withRouter(
   lazy(() => import(/* webpackChunkName: "products" */ './products/Products'))
+);
+
+const List = withRouter(
+  lazy(() => import(/* webpackChunkName: "list" */ './listProducts/List'))
 );
 
 class App extends Component {
@@ -22,6 +27,7 @@ class App extends Component {
               <Switch>
                 <Redirect from="/" exact to="/products" />
                 <Route path="/products" component={Products} />
+                <Route path="/list" component={List} />
                 <Route path="/about" component={About} />
                 <Route exact path="**" component={NotFound} />
               </Switch>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const NavBar = (props) => {
-  const providers = ['twitter'] //, 'github', 'aad'];
+  const providers = ['twitter', 'github', 'aad'];
   const redirect = window.location.pathname;
   const [userInfo, setUserInfo] = useState();
 
@@ -31,6 +31,9 @@ const NavBar = (props) => {
         <ul className="menu-list">
           <NavLink to="/products" activeClassName="active-link">
             Products
+          </NavLink>
+          <NavLink to="/list" activeClassName="active-link">
+            List
           </NavLink>
           <NavLink to="/about" activeClassName="active-link">
             About
